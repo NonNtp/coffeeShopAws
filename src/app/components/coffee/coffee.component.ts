@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./coffee.component.css'],
 })
 export class CoffeeComponent implements OnInit {
+  datePlaceOrder: String = '';
+
   userProfileForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
@@ -22,6 +24,7 @@ export class CoffeeComponent implements OnInit {
   resultDrink: String = '';
   resultTempPreference: String = '';
   resultSendText: Boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -41,6 +44,7 @@ export class CoffeeComponent implements OnInit {
       if (result.isConfirmed) {
         Swal.fire('Confirmed', 'Your Order is successfully', 'success').then(
           () => {
+            this.datePlaceOrder = new Date().toLocaleString();
             this.resultName = this.userProfileForm.value.name;
             this.resultEmail = this.userProfileForm.value.email;
             this.resultPhone = this.userProfileForm.value.phone;
