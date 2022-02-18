@@ -1,0 +1,41 @@
+<form [formGroup]="friendForm">
+  <div class="form-group">
+    <label for="friendname">Friend name:</label>
+    <!-- <input type="text" formControlName="FriendName" /> -->
+    <input [ngModel]="friend.name" type="text" formControlName="FriendName" />
+    <!-- <input
+      [ngModel]="friend.name"
+      type="text"
+      formControlName="FriendName"
+    /> -->
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <!-- <input type="email" formControlName="FriendEmail" /> -->
+    <!-- <input [ngModel]="friend.email" type="text" formControlName="FriendEmail" /> -->
+    <input [ngModel]="friend.email" type="text" formControlName="FriendEmail" />
+  </div>
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <!-- <input type="number" formControlName="FriendAge" /> -->
+    <!-- <input [ngModel]="friend.age" type="text" formControlName="FriendAge" /> -->
+    <input [ngModel]="friend.age" type="text" formControlName="FriendAge" />
+  </div>
+</form>
+<p>
+  <b>Retrieve values from the form: </b> <br />
+  {{ friendForm.value | json }} <br />
+  {{ friendForm.value.friendname }} <br />
+  {{ friendForm.value.email }} <br />
+  {{ friendForm.value.age }}
+</p>
+<p>
+  <b>Retrieve values from the model:</b> <br />
+  {{ friend.name }} <br />
+  {{ friend.email }} <br />
+  {{ friend.age }}
+</p>
+
+<button (click)="changeDefaultName()" class="btn btn-primary">
+  Click to change the name
+</button>

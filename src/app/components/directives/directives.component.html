@@ -1,0 +1,22 @@
+<h4>List of student</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Major</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let s of students">
+    <td>{{ s.name }}</td>
+    <td>{{ s.email }}</td>
+    <td>
+      <span *ngIf="s.major != 'cs'">{{ s.major }}</span>
+    </td>
+    <td>
+      <span *ngIf="s.major == 'cs'">{{ s.year }}</span>
+    </td>
+  </tr>
+</table>
