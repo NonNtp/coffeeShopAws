@@ -2,7 +2,7 @@
   <div class="form-group">
     <label for="friendname">Friend name:</label>
     <!-- <input type="text" formControlName="FriendName" /> -->
-    <input [ngModel]="friend.name" type="text" formControlName="FriendName" />
+    <input [(ngModel)]="friend.name" type="text" formControlName="FriendName" />
     <!-- <input
       [ngModel]="friend.name"
       type="text"
@@ -13,13 +13,17 @@
     <label for="email">Email:</label>
     <!-- <input type="email" formControlName="FriendEmail" /> -->
     <!-- <input [ngModel]="friend.email" type="text" formControlName="FriendEmail" /> -->
-    <input [ngModel]="friend.email" type="text" formControlName="FriendEmail" />
+    <input
+      [(ngModel)]="friend.email"
+      type="text"
+      formControlName="FriendEmail"
+    />
   </div>
   <div class="form-group">
     <label for="age">Age:</label>
     <!-- <input type="number" formControlName="FriendAge" /> -->
     <!-- <input [ngModel]="friend.age" type="text" formControlName="FriendAge" /> -->
-    <input [ngModel]="friend.age" type="text" formControlName="FriendAge" />
+    <input [(ngModel)]="friend.age" type="text" formControlName="FriendAge" />
   </div>
 </form>
 <p>
