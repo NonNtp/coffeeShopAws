@@ -10,6 +10,8 @@ import { DirectivesComponent } from './components/directives/directives.componen
 import { FriendComponent } from './components/friend/friend.component';
 import { CoffeeComponent } from './components/coffee/coffee.component';
 
+import { PageService } from './share/page.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,7 @@ import { CoffeeComponent } from './components/coffee/coffee.component';
     CoffeeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  providers: [PageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

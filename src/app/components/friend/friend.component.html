@@ -2,7 +2,7 @@
   <div class="form-group">
     <label for="friendname">Friend name:</label>
     <!-- <input type="text" formControlName="FriendName" /> -->
-    <input [(ngModel)]="friend.name" type="text" formControlName="FriendName" />
+    <input (ngModel)="(friend.name)" type="text" formControlName="FriendName" />
     <!-- <input
       [ngModel]="friend.name"
       type="text"
@@ -14,7 +14,7 @@
     <!-- <input type="email" formControlName="FriendEmail" /> -->
     <!-- <input [ngModel]="friend.email" type="text" formControlName="FriendEmail" /> -->
     <input
-      [(ngModel)]="friend.email"
+      (ngModel)="(friend.email)"
       type="text"
       formControlName="FriendEmail"
     />
@@ -23,15 +23,15 @@
     <label for="age">Age:</label>
     <!-- <input type="number" formControlName="FriendAge" /> -->
     <!-- <input [ngModel]="friend.age" type="text" formControlName="FriendAge" /> -->
-    <input [(ngModel)]="friend.age" type="text" formControlName="FriendAge" />
+    <input (ngModel)="(friend.age)" type="text" formControlName="FriendAge" />
   </div>
 </form>
 <p>
   <b>Retrieve values from the form: </b> <br />
   {{ friendForm.value | json }} <br />
-  {{ friendForm.value.friendname }} <br />
-  {{ friendForm.value.email }} <br />
-  {{ friendForm.value.age }}
+  <!-- {{ friendForm.get("FriendName")?.value }} <br />
+  {{ friendForm.value.FriendEmail }} <br />
+  {{ friendForm.value.FriendAge }} -->
 </p>
 <p>
   <b>Retrieve values from the model:</b> <br />
@@ -40,6 +40,26 @@
   {{ friend.age }}
 </p>
 
-<button (click)="changeDefaultName()" class="btn btn-primary">
+<button (click)="changeDefaultName('CS')" class="btn btn-primary">
   Click to change the name
 </button>
+<button (click)="submitFormHandler(friendForm)" class="btn btn-primary ml-5">
+  Submit
+</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of friends">
+      <td>{{ f.name }}</td>
+      <td>{{ f.email }}</td>
+      <td>{{ f.age }}</td>
+    </tr>
+  </tbody>
+</table>

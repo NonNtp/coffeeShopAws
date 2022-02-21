@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Friend } from './friend';
+import { PageService } from 'src/app/share/page.service';
 
 @Component({
   selector: 'app-friend',
@@ -9,6 +10,7 @@ import { Friend } from './friend';
 })
 export class FriendComponent implements OnInit {
   friend: Friend;
+  friends: Friend[] = [];
   friendForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -21,9 +23,20 @@ export class FriendComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  changeDefaultName() {
-    this.friend.name = this.friendForm.value.FriendName;
-    this.friend.email = this.friendForm.value.FriendEmail;
-    this.friend.age = this.friendForm.value.FriendAge;
+
+  changeDefaultName(arg: string) {
+    this.friend.name = arg;
+  }
+
+  submitFormHandler(f: FormGroup) {
+    this.friend.name = f.get('FriendName')?.value;
+    this.friend.name = f.get('FriendEmail')?.value;
+    this.friend.name = f.get('FriendAge')?.value;
+    let form_record = new Friend(
+      f.get('FriendName')?.value,
+      f.get('FriendEmail')?.value,
+      f.get('FriendAge')?.value
+    );
+    this.friends.push(form_record);
   }
 }
