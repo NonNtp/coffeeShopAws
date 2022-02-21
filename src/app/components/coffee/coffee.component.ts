@@ -42,8 +42,8 @@ export class CoffeeComponent implements OnInit {
       confirmButtonText: 'Yes',
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire('Confirmed', 'Your Order is successfully', 'success').then(
-          () => {
+        Swal.fire('Confirmed', 'Your Order is successfully', 'success')
+          .then(() => {
             this.datePlaceOrder = new Date().toLocaleString();
             this.resultName = this.userProfileForm.value.name;
             this.resultEmail = this.userProfileForm.value.email;
@@ -52,8 +52,10 @@ export class CoffeeComponent implements OnInit {
             this.resultTempPreference =
               this.userProfileForm.value.tempPreference;
             this.resultSendText = this.userProfileForm.value.sendText;
-          }
-        );
+          })
+          .then(() => {
+            this.userProfileForm.reset();
+          });
       }
     });
   }

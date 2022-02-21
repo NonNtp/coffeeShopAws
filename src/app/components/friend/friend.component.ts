@@ -38,5 +38,6 @@ export class FriendComponent implements OnInit {
       f.get('FriendAge')?.value
     );
     this.friends.push(form_record);
+    this.friendForm.reset();
   }
 }
